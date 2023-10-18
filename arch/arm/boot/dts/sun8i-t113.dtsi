@@ -51,7 +51,7 @@
 
 	timer_arch {
 		compatible = "arm,armv7-timer";
-		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
+		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>, 
 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
 			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
@@ -234,7 +234,11 @@
 				pins = "PG8", "PG9";
 				function = "uart1";
 			};
-
+			/*usr add */
+			    uart3_pb6_pins: uart3-pb6-pins {
+			        pins = "PB6", "PB7"; 
+			        function = "uart3";
+			};
 			can0_pins: can0_pins@0 {
 				pins = "PB2", "PB3";
 				function = "can0";
@@ -251,7 +255,7 @@
 		};
 
 		pwm: pwm@2000c00 {
-			compatible = "allwinner,sun20i-d1-pwm";
+			compatible = "allwinner,sun20i-d1-pwm"; 
 			reg = <0x2000c00 0x400>;
 			interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
 			clocks = <&ccu CLK_BUS_PWM>, <&osc24M>;
