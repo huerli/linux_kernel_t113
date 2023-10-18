@@ -15,12 +15,13 @@
 		ethernet0 = &rtl8189fs;
 		mmc0 = &mmc0;
 		serial1 = &uart1;
+		serial3 = &uart3;
 		serial5 = &uart5;
 	};
 
 	chosen {
-		stdout-path = "serial5:115200n8";
-		bootargs = "mem=128M cma=72M root=/dev/mmcblk0p2 init=/sbin/init rootwait console=tty0 console=ttyS5,115200";
+		stdout-path = "serial3:115200n8"; 
+		bootargs = "mem=128M cma=72M root=/dev/mmcblk0p2 init=/sbin/init rootwait console=tty0 console=ttyS3,115200"; 
 	};
 
 	reg_vcc: vcc {
@@ -32,7 +33,7 @@
 
 	reg_usbvbus: usbvbus {
 		compatible = "regulator-fixed";
-		regulator-name = "usbvbus";
+		regulator-name = "usbvbus"; 
 		regulator-min-microvolt = <5000000>;
 		regulator-max-microvolt = <5000000>;
 		vin-supply = <&reg_vcc>;
@@ -189,7 +190,11 @@
 
         /* XR829 bluetooth is connected here */
 };
-
+&uart3 {
+        pinctrl-0 = <&uart3_pb6_pins>;
+        pinctrl-names = "default";
+        status = "okay";
+};
 &uart5 {
 	pinctrl-0 = <&uart5_pb4_pins>;
 	pinctrl-names = "default";
