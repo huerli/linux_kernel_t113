@@ -54,7 +54,7 @@
 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>, 
 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
+			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>; 
 		clock-frequency = <24000000>;
 		interrupt-parent = <&gic>;
 		arm,cpu-registers-not-fw-configured;
@@ -94,9 +94,9 @@
 			gpio-controller;
 			interrupt-controller;
 			#gpio-cells = <3>;
-			#interrupt-cells = <3>;
+			#interrupt-cells = <3>; 
 
-			/omit-if-no-ref/
+			/omit-if-no-ref/ 
 			dsi_4lane_pins: dsi-4lane-pins {
 				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
 				       "PD6", "PD7", "PD8", "PD9";
@@ -122,14 +122,20 @@
 			};
 
 			/omit-if-no-ref/
-			lcd_rgb666_pins: lcd-rgb666-pins {
+			lcd_rgb666_pins: lcd-rgb666-pins { 
 				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
 				       "PD6", "PD7", "PD8", "PD9", "PD10", "PD11",
 				       "PD12", "PD13", "PD14", "PD15", "PD16", "PD17",
 				       "PD18", "PD19", "PD20", "PD21";
 				function = "lcd0";
 			};
-
+			lcd_rgb666_pins_a: lcd-rgb666-pins_a {  
+				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5", 
+				       "PD6", "PD7", "PD8", "PD9", "PD10", "PD11", 
+				       "PD12", "PD13", "PD14", "PD15", "PD16", "PD17",
+				       "PD18", "PD19", "PD20", "PD21";
+				function = "lcd0";
+			};
 			/omit-if-no-ref/
 			ledc_pc0_pin: ledc-pc0-pin {
 				pins = "PC0";
